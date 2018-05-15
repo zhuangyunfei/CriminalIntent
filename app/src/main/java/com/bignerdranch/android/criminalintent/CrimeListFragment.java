@@ -1,5 +1,6 @@
 package com.bignerdranch.android.criminalintent;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -47,10 +48,13 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Toast toast = Toast.makeText(getActivity(),mCrime.getTitle()+"被点击",
+            /*Toast toast = Toast.makeText(getActivity(),mCrime.getTitle()+"被点击",
                     Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM,0,0);
-            toast.show();
+            toast.show();*/
+            //在Fragment中启动Acticity
+            Intent intent = CrimePagerActivity.newIntent(getActivity(),mCrime.getId());
+            startActivity(intent);
         }
 
         public void bind(Crime crime) {

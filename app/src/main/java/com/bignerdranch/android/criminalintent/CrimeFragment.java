@@ -14,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import java.util.UUID;
+
 /**
  * 项目名称
  * 创建人
@@ -28,11 +30,13 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     //第三步处理CheckBox组件
     private CheckBox mSolvedCheckBox;
+    private static final String ARG_CRIME_ID = "crime_id";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCrime = new Crime();
+        UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
+        mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);
     }
 
     @Nullable
@@ -71,5 +75,13 @@ public class CrimeFragment extends Fragment {
         });
 
         return view;
+    }
+    public static CrimeFragment newInstance(UUID crimeId){
+        Bundle arg = new Bundle();
+        arg.putSerializable(ARG_CRIME_ID,crimeId);
+        CrimeFragment fragment = new CrimeFragment();
+        fragment.setArguments(arg);
+        return fragment;
+
     }
 }
