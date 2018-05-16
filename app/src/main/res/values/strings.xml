@@ -5,4 +5,11 @@
     <string name="crime_title_hint">输入陋习的名称</string>
     <string name="crime_details_label">细节</string>
     <string name="crime_solved_label">解决</string>
+    <!-- 添加陋习时间选择对话框 -->
+    <string name="date_picker_title">陋习记录时间：</string>
+    <!-- 添加工具栏的菜单 -->
+    <string name="new_crime">新的陋习</string>
+    <string name="show_subtitle">子标题展示</string>
+    <string name="hide_subtitle">隐藏子标题</string>
+    <string name="subtitle_format">子标题的格式%1$d crimes</string>
 </resources>
